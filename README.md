@@ -23,5 +23,3 @@ To add a new skill:
 2. Add `SKILL.md` with proper frontmatter (name, description)
 3. Optionally add `references/` for documentation
 4. Push to this repository
-
-For more details, see [skill-creator](https://github.com/anomalyco/opencode) documentation.
