@@ -1,0 +1,102 @@
+{
+  "version": "1.2",
+  "riasec": {
+    "R": {
+      "name": "Realistic 现实型",
+      "meaning": "偏好动手、工具、设备、系统、实体对象和实际操作。",
+      "positive_evidence": ["动手搭建", "排查设备或程序", "关注实际产出", "喜欢可操作任务"],
+      "caution": "不要把理工科专业自动等同于 R 高，需要行为证据。"
+    },
+    "I": {
+      "name": "Investigative 研究型",
+      "meaning": "偏好分析、探索、推理、查证、理解复杂问题。",
+      "positive_evidence": ["查资料", "拆解问题", "建立判断标准", "提出假设并验证"],
+      "caution": "表达聪明或成绩好不等于 I 高，需要问题探索行为。"
+    },
+    "A": {
+      "name": "Artistic 艺术型",
+      "meaning": "偏好创造、表达、设计、内容、审美和非标准化输出。",
+      "positive_evidence": ["提出创意", "重视表达方式", "创作作品", "喜欢开放式方案"],
+      "caution": "喜欢美的东西不一定 A 高，需要持续表达或创作倾向。"
+    },
+    "S": {
+      "name": "Social 社会型",
+      "meaning": "偏好帮助、沟通、教育、支持他人和促进关系。",
+      "positive_evidence": ["耐心解释", "关注他人状态", "协调关系", "愿意帮助他人成长"],
+      "caution": "外向不等于 S 高，S 更看重帮助和支持行为。"
+    },
+    "E": {
+      "name": "Enterprising 企业型",
+      "meaning": "偏好影响、组织、说服、推进、竞争和结果达成。",
+      "positive_evidence": ["主动推进", "组织分工", "说服他人", "关注机会和结果"],
+      "caution": "想赚钱不等于 E 高，需要影响他人或推动目标的行为。"
+    },
+    "C": {
+      "name": "Conventional 常规型",
+      "meaning": "偏好秩序、流程、规则、细节、稳定执行和可控结果。",
+      "positive_evidence": ["偏好清晰规则", "喜欢可重复流程", "重视细节准确", "倾向稳定可控的执行环境"],
+      "caution": "会分析、会拆解、会使用框架不等于 C 高；这可能只是 structured_thinking。C 需要对规则、稳定流程、细节执行或可控系统的偏好证据。"
+    }
+  },
+  "auxiliary_preferences": {
+    "stability_preference": "是否重视安全、确定性、清晰路径、低波动和可控结果。",
+    "autonomy": "是否希望拥有较高自由度、探索空间和自主决策权。",
+    "growth_drive": "是否重视挑战、能力成长、试错和长期上升空间。",
+    "income_sensitivity": "是否明显关注收入上限、投入产出比和商业回报。",
+    "social_impact": "是否希望工作能帮助他人、改善体验或产生公共价值。",
+    "collaboration_preference": "是否倾向与他人协作、沟通、组织和共同推进。",
+    "uncertainty_tolerance": "面对模糊、变化、风险和结果不确定时的接受程度。",
+    "structured_thinking": "是否习惯用结构、框架、拆分、记录和边界条件处理复杂问题。它不是 RIASEC 的 C 常规型。",
+    "credential_sensitivity": "是否明显依赖学历、证书、平台或外部标签来获得安全感、证明自己或降低职业不确定性。",
+    "boundary_management": "是否能在协作、帮助、责任分配和外部期待中设置清晰边界，避免过度承担或逃避责任。"
+  },
+  "score_scale": {
+    "-2": "明确排斥或多次表现出强烈不适",
+    "-1": "轻度排斥、回避或在压力下明显不适",
+    "0": "没有足够证据，不代表负向",
+    "1": "有弱证据或单次倾向",
+    "2": "有明确、具体、可解释的正向证据"
+  },
+  "confidence_rules": {
+    "0.85": "具体真实经历，行为清楚，前后一致，学生认可解释。",
+    "0.70": "场景代入具体，能描述动作、顺序、理由或边界。",
+    "0.50": "有倾向但较抽象，或只有一次弱证据。",
+    "0.30": "回答理想化、含混、缺少行动细节，或学生不确定。",
+    "0.10": "只适合作为待验证线索，不能用于强结论。"
+  },
+  "evidence_types": {
+    "concrete_past_event": {
+      "meaning": "学生描述发生过的具体事件和行动。",
+      "default_confidence": 0.8
+    },
+    "recent_small_event": {
+      "meaning": "学生描述相似的小事件，如课程作业、社团、宿舍、朋友协作。",
+      "default_confidence": 0.7
+    },
+    "scene_continuation": {
+      "meaning": "学生在假设情境中自然续写具体行动。",
+      "default_confidence": 0.6
+    },
+    "self_description": {
+      "meaning": "学生描述自己通常是什么样的人，但缺少具体行为。",
+      "default_confidence": 0.35
+    },
+    "ideal_statement": {
+      "meaning": "学生表达理想化态度或正确价值，但没有取舍和行动。",
+      "default_confidence": 0.2
+    }
+  },
+  "update_rules": [
+    "Only update scores after an effective answer unit.",
+    "Tie every score delta to a specific evidence item.",
+    "Do not assign negative scores for absence of evidence.",
+    "Use negative scores only for explicit rejection, repeated avoidance, or stated discomfort.",
+    "Keep confidence separate from score.",
+    "If the student corrects an interpretation, append a new correction evidence item instead of deleting history.",
+    "When evidence is contradictory, record an open question rather than forcing a type.",
+    "Do not score prompt-induced analysis as strong I or C evidence.",
+    "Use structured_thinking instead of C when the student uses frameworks to manage complexity but does not show preference for stable routine or rule-bound work.",
+    "Use credential_sensitivity when the student discusses degrees, certificates, school tier, platform labels, or external proof as career security signals.",
+    "Use boundary_management when the student explicitly handles responsibility limits, helping boundaries, role scope, or anti-free-riding arrangements."
+  ]
+}

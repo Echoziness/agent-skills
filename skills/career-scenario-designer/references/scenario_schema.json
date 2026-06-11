@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Career Scenario v1.2",
+  "type": "object",
+  "required": [
+    "version",
+    "scenarios"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "description": "题库主要语言，如 zh-CN"
+    },
+    "framework": {
+      "type": "string",
+      "description": "题库使用的评估框架说明"
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "ask",
+          "know",
+          "bias",
+          "rubric"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "S001-S00N 或 T001-T00N"
+          },
+          "title": {
+            "type": "string",
+            "description": "简短标题，供选择列表展示"
+          },
+          "ask": {
+            "type": "string",
+            "description": "发给学生的情景提问。行动优先，先问动作再问推理。"
+          },
+          "know": {
+            "type": "string",
+            "description": "给 AI 备课用的背景信息。包含角色、触发事件、约束、社会动态、时间压力、赌注。"
+          },
+          "bias": {
+            "type": "object",
+            "required": [
+              "risk",
+              "dont",
+              "only"
+            ],
+            "properties": {
+              "risk": {
+                "type": "string",
+                "description": "这道题可能诱导什么偏误"
+              },
+              "dont": {
+                "type": "string",
+                "description": "什么行为不应给分，因为题目诱导了它"
+              },
+              "only": {
+                "type": "string",
+                "description": "什么自发行为才构成有效证据"
+              }
+            }
+          },
+          "rubric": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "when",
+                "add",
+                "confidence_condition"
+              ],
+              "properties": {
+                "when": {
+                  "type": "string",
+                  "description": "什么情况下给分——行为描述 + 评分条件（含'自发'或'只有'）"
+                },
+                "add": {
+                  "type": "object",
+                  "description": "触发后给哪些维度加几分。RIASEC 和辅助维度平铺。",
+                  "minProperties": 1
+                },
+                "confidence_condition": {
+                  "type": "string",
+                  "description": "什么情况下这个评分置信度较高（高置信条件说明，不是数值置信度）"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

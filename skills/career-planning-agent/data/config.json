@@ -1,0 +1,20 @@
+{
+  "version": "1.2",
+  "readiness": {
+    "min_effective_units": 6,
+    "min_riasec_dimensions": 4,
+    "min_auxiliary_dimensions": 3,
+    "require_confirmed_summary": true
+  },
+  "question_selection": {
+    "default_opener_id": "S001",
+    "riasec_match_weight": 4,
+    "auxiliary_match_weight": 2
+  },
+  "follow_up": {
+    "max_per_scenario": 2
+  },
+  "summary": {
+    "max_consecutive_partials": 3
+  }
+}

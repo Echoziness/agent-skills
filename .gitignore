@@ -6,3 +6,4 @@ skills/*/scripts/.playwright/
 skills/*/scripts/.playwright-cli/
 skills/*/scripts/bili-data/
 skills/*/scripts/.bili-tmp/
+skills/*/scripts/__pycache__/
