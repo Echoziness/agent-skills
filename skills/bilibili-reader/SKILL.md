@@ -1,7 +1,6 @@
 ---
 name: bilibili-reader
-compatibility: "Windows + PowerShell + Node.js + @playwright/cli + Microsoft Edge"
-description: "赋予 AI '观看' Bilibili 视频的能力。基于 Playwright CLI，自动化提取视频的 AI 字幕（视频核心内容）、视频元数据（标题/UP主/播放量等）和结构化评论（主评论+子评论+点赞数）。当用户提供 B站视频链接（含 BV/AV 号），并要求看视频、总结视频内容、阅读视频内容、提取字幕/评论，或分析观点和反应时，必须触发此技能。"
+description: "赋予 AI '观看' Bilibili 视频的能力（仅限 Windows + PowerShell 环境，利用系统预装 Microsoft Edge，无需额外安装浏览器）。基于 Playwright CLI，自动化提取视频的 AI 字幕（视频核心内容）、视频元数据（标题/UP主/播放量等）和结构化评论（主评论+子评论+点赞数）。当用户提供 B站视频链接（含 BV/AV 号），并要求看视频、总结视频内容、阅读视频内容、提取字幕/评论，或分析观点和反应时，必须触发此技能。"
 ---
 
 # Bilibili Reader
@@ -16,7 +15,7 @@ description: "赋予 AI '观看' Bilibili 视频的能力。基于 Playwright CL
 .\scripts\br.ps1
 ```
 
-依赖：`npm install -g @playwright/cli` + Microsoft Edge + B站账号（首次需登录）。
+依赖：Node.js 18+、`npm install -g @playwright/cli`（推荐 >= 1.5.0）+ Microsoft Edge（Windows 已预装）+ B站账号（首次需登录）。
 
 ## 核心知识：B站数据的三层获取策略
 
@@ -72,6 +71,7 @@ description: "赋予 AI '观看' Bilibili 视频的能力。基于 Playwright CL
 
 > Playwright CLI 底层行为详解见 [references/playwright-deep-dive.md](references/playwright-deep-dive.md)
 > 故障排查见 [references/troubleshooting.md](references/troubleshooting.md)
+> 已知限制和注意事项见 [references/caveats.md](references/caveats.md)
 
 ---
 

@@ -1,6 +1,8 @@
 .playwright/
 .playwright-cli/
-bili-data/*.txt
-bili-data/*.json
-.bili-tmp/*.js
-.bili-tmp/*.xml
+bili-data/
+.bili-tmp/
+skills/*/scripts/.playwright/
+skills/*/scripts/.playwright-cli/
+skills/*/scripts/bili-data/
+skills/*/scripts/.bili-tmp/
