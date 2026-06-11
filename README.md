@@ -11,6 +11,7 @@ A collection of OpenCode agent skills.
 | [career-planning-agent](skills/career-planning-agent/) | 通过情景行为证据，为大学生形成可修正的、证据驱动的职业探索假设 |
 | [career-scenario-designer](skills/career-scenario-designer/) | 为职业生涯规划设计场景题（通用 S 场景 + 定制 T 场景），配套 career-planning-agent |
 | [news](skills/news/) | 整合多源新闻信息，提供深度分析与洞察，不遗落重要新闻与前沿动态 |
+| [algo-judge](skills/algo-judge/) | 算法题出题与自动评测，模拟 OJ 系统，支持 7 种语言 |
 
 ## Installation
 
@@ -21,6 +22,7 @@ npx skills add Echoziness/agent-skills@simple-video-downloader
 npx skills add Echoziness/agent-skills@career-planning-agent
 npx skills add Echoziness/agent-skills@career-scenario-designer
 npx skills add Echoziness/agent-skills@news
+npx skills add Echoziness/agent-skills@algo-judge
 ```
 
 ## Adding New Skills
